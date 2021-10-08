@@ -5,11 +5,13 @@ import Start from './containers/Start';
 import MathQuiz from './containers/MathQuiz';
 import './App.css';
 import backgroundGIF from './assets/gif/background.gif'
+import backgroundGIF2 from './assets/gif/background2.gif'
+
 import Footer from './components/Footer';
+import sessionData from './utils/sessionData';
 import grocerySound from './assets/sounds/grocerySound.mp3'
 import on from './assets/sound.png'
 import off from './assets/mute.png'
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,6 +36,9 @@ class App extends Component {
 
     // alert(id)
   }
+  componentDidMount(){
+    this.state.sound.play()
+  }
   handleSoundClick = () => {
     if (!this.state.sound.paused) {
       this.state.sound.pause()
@@ -52,7 +57,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={backgroundGIF} id="bg" alt="" />
+          {sessionData.dif == "b" ? <img src={backgroundGIF} id="bg" alt="" /> : <img src={backgroundGIF2} id="bg" alt="" />}
           <div >
             <img alt="mute" src={this.state.img} style={{ position: "fixed", top: "20px", left: "20px", maxWidth: "40px", width: "100%", zIndex: 4 }} onClick={this.handleSoundClick} />
           </div>

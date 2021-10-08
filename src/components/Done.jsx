@@ -20,7 +20,7 @@ const style = {
     border: "0.5px solid #61dafb"
   },
   poinstStyle: {
-    color: "#61dafb",
+    color: "black",
     fontWeight: "bold"
   }
 };
@@ -40,8 +40,8 @@ class Done extends React.Component {
           RETRY
         </h3>
         {/* <h5 style={otherButton} onClick={this.props.onReStartGame}>
-          Another player
-        </h5> */}
+        Another player
+      </h5> */}
         {this.children}
       </div>
     );

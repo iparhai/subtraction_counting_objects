@@ -1,6 +1,6 @@
+
 import sessionData from "./sessionData";
 export const PRIMES_NUMBERS = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
-
 
 /**
  * Get a random symbol (+ , - , / , *)
@@ -116,7 +116,7 @@ const generateProblem = (points) => {
 const generateAdditionProblem = (points) => {
     const lv = 1;
     let firstNumber = getRandomNumber();
-    let symbol = "+";
+    let symbol = "-";
     let secondNumber = getRandomNumber();
     let problem = firstNumber
     problem += ` ${symbol} ${secondNumber}`
@@ -126,9 +126,11 @@ const generateSubtractionProblem = (points) => {
     const lv = 1;
     let firstNumber = getRandomNumber();
     console.log(firstNumber)
+    if (firstNumber == 0) firstNumber = 1
     let symbol = "-";
     let secondNumber = getRandomNumber();
     console.log(secondNumber)
+    if (secondNumber == 0) secondNumber = 1
     if (firstNumber < secondNumber) {
         const temp = firstNumber;
         firstNumber = secondNumber;

@@ -13,7 +13,7 @@ class Timmer extends React.Component {
             seconds: this.props.seconds,
             level: this.props.level,
             limit: 0,
-            totalProblems: 0
+            totalProblems: 1
         }
     }
 
@@ -24,16 +24,16 @@ class Timmer extends React.Component {
         });
         this._secondsIntervalRef = setInterval(() => this.setState(prevState => ({
             seconds: --prevState.seconds
-        })), 1000000)
+        })), 1000)
     }
     componentDidUpdate() {
         if (this.props.level !== this.state.level) {
-            sessionData.setDataTime(20 - this.state.seconds)
+            sessionData.setDataTime(300 - this.state.seconds)
             this.setState(prevState => ({
                 level: this.props.level,
                 //seconds: prevState.seconds + 20,
                 totalProblems: this.state.totalProblems + 1,
-                seconds: 20
+                seconds: 300
 
             }));
 
@@ -41,7 +41,7 @@ class Timmer extends React.Component {
         }
 
         if (this.state.seconds < 0 || this.state.totalProblems > this.state.limit) {
-            this.props.onEndGame();
+            this.props.onEndGame(this.props.points);
         }
     }
 
