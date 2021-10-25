@@ -24,7 +24,7 @@ class Quiz extends React.Component {
     images: [bowl, rooster],
     randomImage: "",
     data: [],
-    totalProblems : 1,
+    totalProblems: 1,
   };
 
   earnLife = () => {
@@ -51,8 +51,8 @@ class Quiz extends React.Component {
 
     this.nextProblem();
   };
-  componentDidUpdate(){
-    if(this.state.totalProblems > sessionData.limit){
+  componentDidUpdate() {
+    if (this.state.totalProblems > sessionData.limit) {
       this.props.onEndGame()
     }
   }
@@ -93,7 +93,7 @@ class Quiz extends React.Component {
         this.setState({
           modalShowing: false,
           answer: 0,
-          totalProblems : this.state.totalProblems + 1
+          totalProblems: this.state.totalProblems + 1
         });
       if (this.props.lifes > 0) (this.answerInput && this.answerInput.focus());
     }, 2500);
@@ -174,7 +174,7 @@ class Quiz extends React.Component {
                     <blockquote class="electric bubble">Autobots,<span>Attack!</span></blockquote>
                   </section> */}
                   <h1 style={{ fontSize: "3.5em" }}> {this.state.problem} </h1>
-                  <DifficultDrag incCount={(number) => { this.setState({ answer: this.state.answer + number }) }} decCount={(number) => { this.setState({ answer: this.state.answer - number }) }} count={this.state.answer} img={this.state.randomImage} />
+                  <DifficultDrag handleAnswer={this.evaluateProblem} answer={this.state.answer} incCount={(number) => { this.setState({ answer: this.state.answer + number }) }} decCount={(number) => { this.setState({ answer: this.state.answer - number }) }} count={this.state.answer} img={this.state.randomImage} />
                 </div> :
                 <div>
                   {/* <table align="center">
@@ -190,7 +190,7 @@ class Quiz extends React.Component {
                       </tr>
                     </tbody>
                   </table> */}
-                  <div className="objectRow" style={{ width: "100%" }}>
+                  {/* { this.state.firstNumber - this.state.secondNumber < 7 ? <div className="objectRow" style={{ width: "100%" }}>
                     <div className="objectLeft">
                       {[...Array(parseInt(this.state.firstNumber))].map((e, i) => {
                         return <img key={i} src={this.state.randomImage} className="questionImage " draggable="false" />
@@ -202,9 +202,10 @@ class Quiz extends React.Component {
                         return <img key={i} src={this.state.randomImage} className="questionImage " draggable="false" />
                       })}
                     </div>
-                  </div>
-
-                  <Drop incCount={(number) => { this.setState({ answer: this.state.answer + number }) }} decCount={(number) => { this.setState({ answer: this.state.answer - number }) }} count={this.state.answer} img={this.state.randomImage} />
+                  </div> :  <h1 style={{ fontSize: "3.5em" }}> {this.state.problem} </h1>
+                  } */}
+                  <h1 style={{ fontSize: "3.5em" }}> {this.state.problem} </h1>
+                  <Drop handleAnswer={this.evaluateProblem} answer={this.state.answer} incCount={(number) => { this.setState({ answer: this.state.answer + number }) }} decCount={(number) => { this.setState({ answer: this.state.answer - number }) }} count={this.state.answer} img={this.state.randomImage} />
                 </div>
               }
               {/* <input
@@ -226,7 +227,7 @@ class Quiz extends React.Component {
                 value={this.state.answer}
                 onKeyUp={this.keyingUp}
               /> */}
-              <button className="btn fourth answerButton" onClick={this.evaluateProblem}> {this.state.answer} </button>
+              {/* <button className="btn fourth answerButton" onClick={this.evaluateProblem}> {this.state.answer} </button> */}
             </div>
           )}
         </div>

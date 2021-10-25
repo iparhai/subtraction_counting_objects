@@ -7,6 +7,7 @@ import Lifes from '../components/Lifes'
 import Points from '../components/Points'
 import "./MathQuiz.css"
 import TableScore from '../components/TableScore';
+import Hints from '../components/Hints';
 // import Hints from '../components/Hints';
 
 
@@ -37,7 +38,7 @@ class MathQuiz extends React.Component {
               <Timmer {...this.props} />
               <Lifes {...this.props} />
               <Points {...this.props} />
-              
+              <Hints />
             </div>
             <div>
               <Quiz {...this.props} />
