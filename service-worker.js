@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Subtraction_CountingObjects/precache-manifest.095862ee6f6b30ea496e2930a069e5c4.js"
+  "/subtraction_counting_objects/precache-manifest.99358382006e47e0dc6f87bb49090eba.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Subtraction_CountingObjects/index.html", {
+workbox.routing.registerNavigationRoute("/subtraction_counting_objects/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
